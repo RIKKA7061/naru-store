@@ -3,13 +3,13 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<meta name="description" content="나루 — GitHub의 좋은 프로그램을 검증해서 설치 버튼 하나로 받는 스토어. PC: PhotoCraft · 안드로이드: DroidDeck.">
-<meta property="og:title" content="나루 스토어">
-<meta property="og:description" content="나루 — GitHub의 좋은 프로그램을 검증해서 설치 버튼 하나로 받는 스토어. PC: PhotoCraft · 안드로이드: DroidDeck.">
+<meta name="description" content="사나미치 스토어 — GitHub의 좋은 프로그램을 검증해서 설치 버튼 하나로 받는 스토어. PC: PhotoCraft · 안드로이드: DroidDeck.">
+<meta property="og:title" content="사나미치 스토어">
+<meta property="og:description" content="사나미치 스토어 — GitHub의 좋은 프로그램을 검증해서 설치 버튼 하나로 받는 스토어. PC: PhotoCraft · 안드로이드: DroidDeck.">
 <meta name="theme-color" content="#070c13">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect x='1' y='1' width='30' height='30' rx='8' fill='%235ad08a'/%3E%3Cpath d='M8.5 12.5l4.5 4.5 10.5-10.5' fill='none' stroke='%2305200f' stroke-width='3.2' stroke-linecap='round' stroke-linejoin='round'/%3E%3Cpath d='M6 23.5c3-2.4 6-2.4 9 0s6 2.4 9 0 2.4-1.6 2.4-1.6' fill='none' stroke='%2305200f' stroke-width='2.6' stroke-linecap='round'/%3E%3C/svg%3E">
 <style>:root{padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}body{margin:0}img{max-width:100%}[hidden]{display:none!important}</style>
-<title>나루 스토어</title>
+<title>사나미치 스토어</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans+KR:wght@400;500;600;700&display=swap">
@@ -78,13 +78,15 @@ legend{padding:0}
 /* top bar */
 .topbar{position:sticky;top:env(safe-area-inset-top,0px);z-index:30;background:var(--bar);border-bottom:1px solid var(--line);-webkit-backdrop-filter:saturate(140%) blur(10px);backdrop-filter:saturate(140%) blur(10px)}
 .topbar-in{display:flex;align-items:center;gap:22px;height:58px}
-.brand{display:flex;align-items:center;gap:9px;color:var(--text)}
+.brand{display:flex;align-items:center;gap:9px;color:var(--text);white-space:nowrap;flex:none}
 .brand:hover{text-decoration:none}
 .logo{width:30px;height:30px;flex:none}
 .logo .lg-bg{fill:var(--go)}
 .logo .lg-mark{fill:none;stroke:var(--go-ink);stroke-linecap:round;stroke-linejoin:round}
 .brand-name{font-weight:700;font-size:19px;letter-spacing:-.02em}
-.brand-latin{font-family:var(--font-display);font-weight:600;font-size:14px;letter-spacing:.2em;color:var(--text-faint);padding-top:2px}
+.brand-latin{font-family:var(--font-display);font-weight:600;font-size:14px;letter-spacing:.2em;color:var(--text-faint);padding-top:2px;display:none}
+@media (min-width:600px){.brand-latin{display:inline}}
+@media (max-width:359px){.topbar-in{gap:12px}.top-right .role-pill{display:none}}
 .topnav{display:none;gap:2px}
 .topnav a{display:inline-flex;align-items:center;gap:6px;color:var(--text-dim);font-weight:600;font-size:14.5px;padding:8px 12px;border-radius:8px;white-space:nowrap}
 .topnav a .ico{width:16px;height:16px}
@@ -540,9 +542,9 @@ details.variants .mono{font-size:12px;color:var(--text)}
 <body>
 <header class="topbar">
   <div class="wrap topbar-in">
-    <a class="brand" href="#store" aria-label="나루 스토어">
+    <a class="brand" href="#store" aria-label="사나미치 스토어">
       <svg class="logo" viewBox="0 0 32 32" aria-hidden="true"><rect class="lg-bg" x="1" y="1" width="30" height="30" rx="8"/><path class="lg-mark" stroke-width="3.2" d="M8.5 12.5l4.5 4.5 10.5-10.5"/><path class="lg-mark" stroke-width="2.6" d="M6 23.5c3-2.4 6-2.4 9 0s6 2.4 9 0 2.4-1.6 2.4-1.6"/></svg>
-      <span class="brand-name">나루</span><span class="brand-latin">NARU</span>
+      <span class="brand-name">사나미치</span><span class="brand-latin">SANAMICHI</span>
     </a>
     <nav class="topnav" id="topnav" aria-label="Main"></nav>
     <div class="top-right">
@@ -651,7 +653,7 @@ const DROIDDECK = {
     { file: 'DroidDeck-0.6.9-ludashi.apk', pkg: 'com.ludashi.benchmark' }
   ],
   checks: [
-    ['ok', L('공식 출처', 'Official source'), L('파일 주소가 Droid-Deck/DroidDeck 공식 릴리스예요. 나루는 파일을 복사하거나 다시 올리지 않아요.', 'The file lives on the official Droid-Deck/DroidDeck release. Naru never copies or re-hosts it.')],
+    ['ok', L('공식 출처', 'Official source'), L('파일 주소가 Droid-Deck/DroidDeck 공식 릴리스예요. 사나미치는 파일을 복사하거나 다시 올리지 않아요.', 'The file lives on the official Droid-Deck/DroidDeck release. Sanamichi never copies or re-hosts it.')],
     ['ok', L('자동 빌드', 'Automated build'), L('GitHub Actions가 빌드하고 서명해서 올린 릴리스예요.', 'Built, signed and published by GitHub Actions.')],
     ['ok', L('체크섬 일치', 'Checksum match'), L('파일을 직접 내려받아 계산한 SHA-256이 개발자가 공개한 SHA256SUMS.txt 값과 같아요.', 'The SHA-256 we computed from the downloaded file matches the published SHA256SUMS.txt.')],
     ['ok', L('개발자 서명', 'Developer signature'), L('Android 9 이상이 확인하는 서명 키가 DroidDeck 키(The412Banner)이고, 지난 버전 0.6.7과 같아요.', 'The key Android 9+ checks is the DroidDeck key (The412Banner), the same as 0.6.7.')],
@@ -670,13 +672,13 @@ const DROIDDECK = {
   askChips: [L('이게 정확히 뭐 하는 앱이에요?', 'What exactly does this app do?'), L('내 폰에서 돌아갈까요?', 'Will it run on my phone?'), L('설치해도 안전한가요?', 'Is it safe to install?'), L('게임은 따로 사야 하나요?', 'Do I have to buy games separately?')],
   askPlaceholder: L('예: 갤럭시 S23에서 돼요?', 'e.g. Will it work on a Galaxy S23?'),
   facts: [
-    'Name: DroidDeck. Open source (GPL-3.0) by the Droid-Deck project on GitHub (github.com/Droid-Deck/DroidDeck). Not affiliated with Valve. Listed in Naru’s Android store; it is an Android app with no PC version.',
+    'Name: DroidDeck. Open source (GPL-3.0) by the Droid-Deck project on GitHub (github.com/Droid-Deck/DroidDeck). Not affiliated with Valve. Listed in Sanamichi’s Android store; it is an Android app with no PC version.',
     'What it does: runs Valve’s Steam client in Big Picture mode on Android and plays Windows games through Valve’s ARM64 Proton. Also a Linux desktop mode, emulators, and other game stores (GOG, Epic, Amazon, Xbox/Game Pass, itch.io, Battle.net). Games are the ones you own; you still buy them.',
     'Requirements: Android 9+. GPU Adreno 730 or newer, or Adreno 8xx (most Snapdragon 8 Gen 1 and newer chips). Adreno 6xx is experimental (DirectX 11 may run, DirectX 12 can crash). Unsupported: Mali, Xclipse (Exynos), PowerVR, Adreno 710. No root. About 3 GB for the Linux runtime plus 1.1 GB optional for desktop and emulators.',
     'Android 14+: turn on "Disable child process restrictions" in Developer options before Steam launches. Android 12/13: first Steam launch offers a "Fix it for me" button.',
-    'Install steps: download the APK from the official GitHub release, allow the browser to install unknown apps, on Samsung Galaxy temporarily turn off Auto Blocker (보안 위험 자동 차단: Settings > Security and privacy) if it blocks the install, open DroidDeck, install the Linux runtime, press Play and sign in to Steam. On a computer, scan the QR in Naru’s install window with the phone.',
-    'Naru-approved version: 0.6.9 (released 2026-10-31), file DroidDeck-0.6.9.apk, 76.7 MB.',
-    'Naru checks done: file is on the official GitHub release, built and signed by GitHub Actions; computed SHA-256 matches the published SHA256SUMS.txt; on Android 9+ the signing key is the DroidDeck key (The412Banner), same as 0.6.7; the legacy v2 signature uses the public AOSP test key, but key rotation is recorded and rollback to it is blocked, so Android 9+ is not affected; no antivirus scan was run yet in this test.',
+    'Install steps: download the APK from the official GitHub release, allow the browser to install unknown apps, on Samsung Galaxy temporarily turn off Auto Blocker (보안 위험 자동 차단: Settings > Security and privacy) if it blocks the install, open DroidDeck, install the Linux runtime, press Play and sign in to Steam. On a computer, scan the QR in Sanamichi’s install window with the phone.',
+    'Sanamichi-approved version: 0.6.9 (released 2026-10-31), file DroidDeck-0.6.9.apk, 76.7 MB.',
+    'Sanamichi checks done: file is on the official GitHub release, built and signed by GitHub Actions; computed SHA-256 matches the published SHA256SUMS.txt; on Android 9+ the signing key is the DroidDeck key (The412Banner), same as 0.6.7; the legacy v2 signature uses the public AOSP test key, but key rotation is recorded and rollback to it is blocked, so Android 9+ is not affected; no antivirus scan was run yet in this test.',
     'The project has no official website; download links on other sites claiming to be the team should not be trusted.',
     '0.6.9 fixed banking apps refusing to open while 0.6.7 was installed, and dual-screen handheld issues.'
   ]
@@ -753,7 +755,7 @@ const PHOTOCRAFT = {
     { v: '0.19.0', date: '2026-11-01' },
     { v: '0.17.0', date: '2026-10-28' }
   ],
-  historyNote: L('개발팀이 거의 매일 새 버전을 내요. 나루는 새 버전마다 서명과 체크섬을 다시 확인한 뒤 운영자가 승인하면 설치 버튼을 바꿔요.', 'The team ships new versions almost daily. For each one, Naru re-checks signatures and checksums, and the Install button switches once the operator approves.'),
+  historyNote: L('개발팀이 거의 매일 새 버전을 내요. 사나미치는 새 버전마다 서명과 체크섬을 다시 확인한 뒤 운영자가 승인하면 설치 버튼을 바꿔요.', 'The team ships new versions almost daily. For each one, Sanamichi re-checks signatures and checksums, and the Install button switches once the operator approves.'),
   release: {
     version: PC_V,
     date: '2026-11-02',
@@ -795,13 +797,13 @@ const PHOTOCRAFT = {
   askChips: [L('포토샵이랑 뭐가 달라요?', 'How is it different from Photoshop?'), L('내 컴퓨터에서 돌아갈까요?', 'Will it run on my computer?'), L('설치해도 안전한가요?', 'Is it safe to install?'), L('한국어로 쓸 수 있나요?', 'Can I use it in Korean?')],
   askPlaceholder: L('예: PSD 파일 열 수 있어요?', 'e.g. Can it open my PSD files?'),
   facts: [
-    'Name: PhotoCraft, by the ArtCraft Team (GitHub: storytold/photocraft, site getartcraft.com/apps/photocraft). Open source, MIT or Apache-2.0. Independent project, not affiliated with Adobe. Listed in Naru’s PC store; it is a desktop program and cannot be installed on phones.',
+    'Name: PhotoCraft, by the ArtCraft Team (GitHub: storytold/photocraft, site getartcraft.com/apps/photocraft). Open source, MIT or Apache-2.0. Independent project, not affiliated with Adobe. Listed in Sanamichi’s PC store; it is a desktop program and cannot be installed on phones.',
     'What it does: a photo and image editor written from scratch in Rust that aims to work like Photoshop (familiar menus and shortcuts). Layers, masks, 16 adjustment layers, layer styles, type, vectors, brushes, selections. Opens and saves PSD/PSB (re-saving keeps the render of 307 of 309 psd-tools test files); reads GIMP XCF, Krita, Paint.NET and Affinity files; works offline. 500+ commands usable from a CLI, a JSON channel and an MCP server so AI agents can drive it.',
     'Korean UI: supported. On first launch it follows the system language; change it in Edit > Preferences > Interface > Language.',
     'Status: early alpha. The team says it is not yet a Photoshop replacement for daily professional work. Gaps: AI/generative features, about 15 missing tools, typography depth, plug-in compatibility.',
-    'Files (version 0.20.1, released 2026-11-02): Windows x64/ARM64/32-bit MSI (102–108 MB) and a portable zip; macOS universal DMG (247.5 MB) for Apple silicon and Intel; Linux x86_64 and ARM64 AppImage, plus .deb, .rpm and Flatpak. Naru picks the file for the visitor’s OS and CPU.',
+    'Files (version 0.20.1, released 2026-11-02): Windows x64/ARM64/32-bit MSI (102–108 MB) and a portable zip; macOS universal DMG (247.5 MB) for Apple silicon and Intel; Linux x86_64 and ARM64 AppImage, plus .deb, .rpm and Flatpak. Sanamichi picks the file for the visitor’s OS and CPU.',
     'Install: Windows: run the MSI, check the publisher is Learning Machines Inc. Mac: open the DMG and drag to Applications; it is notarized. Linux: make the AppImage executable and run it.',
-    'Naru checks done: official upstream release (not mirrors or forks); SHA-256 of the Windows x64 MSI, macOS DMG and Linux AppImage matched SHA256SUMS.txt; the MSI carries an Authenticode signature from Learning Machines Inc (Microsoft identity-verified certificate); the DMG is signed with Apple Developer ID (Learning Machines LLC) and has a stapled notarization ticket; no antivirus scan yet.'
+    'Sanamichi checks done: official upstream release (not mirrors or forks); SHA-256 of the Windows x64 MSI, macOS DMG and Linux AppImage matched SHA256SUMS.txt; the MSI carries an Authenticode signature from Learning Machines Inc (Microsoft identity-verified certificate); the DMG is signed with Apple Developer ID (Learning Machines LLC) and has a stapled notarization ticket; no antivirus scan yet.'
   ]
 };
 
@@ -1108,7 +1110,7 @@ function statsHTML(a) {
   const rv = st.n ? `${st.avg.toFixed(1)}${icon('star', 'fill')}` : '—';
   const rvL = st.n ? T(`리뷰 ${fmtNum(st.n)}개`, `${fmtNum(st.n)} reviews`) : T('리뷰 없음', 'No reviews');
   return `<div class="stat"><b>${rv}</b><span>${rvL}</span></div>
-    <div class="stat"><b>${inst}</b><span>${T('나루에서 받음', 'Got it here')}</span></div>
+    <div class="stat"><b>${inst}</b><span>${T('여기서 받음', 'Got it here')}</span></div>
     <div class="stat"><b>${fmtMB(f.bytes)}</b><span>${esc(f.kind)} ${T('크기', 'size')}</span></div>
     <div class="stat"><b>${esc(a.release.version)}</b><span>${T('승인 버전', 'Approved')}</span></div>`;
 }
@@ -1338,7 +1340,7 @@ function renderChrome() {
   $('#lang-ko').setAttribute('aria-pressed', String(S.lang === 'ko'));
   $('#lang-en').setAttribute('aria-pressed', String(S.lang === 'en'));
   $('#who').innerHTML = whoHTML();
-  $('#foot').innerHTML = `<p>${T('나루는 개인 프로젝트 프로토타입이에요. 등록된 프로젝트나 Valve·Adobe와 관계없고, 설치 파일을 직접 보관하거나 배포하지 않아요. 설치 버튼은 GitHub 공식 릴리스 파일로 바로 연결돼요.', 'Naru is a personal prototype. It isn’t affiliated with the listed projects, Valve or Adobe, and never stores or redistributes installers. Install links go straight to the official GitHub release file.')}</p><p>${T('GitHub 정보 기준: 2026년 11월 3일 · Steam은 Valve Corporation의, Photoshop은 Adobe Inc.의 상표예요.', 'GitHub data as of Nov 3, 2026 · Steam is a trademark of Valve Corporation; Photoshop is a trademark of Adobe Inc.')}</p>`;
+  $('#foot').innerHTML = `<p>${T('사나미치는 개인 프로젝트 프로토타입이에요. 등록된 프로젝트나 Valve·Adobe와 관계없고, 설치 파일을 직접 보관하거나 배포하지 않아요. 설치 버튼은 GitHub 공식 릴리스 파일로 바로 연결돼요.', 'Sanamichi is a personal prototype. It isn’t affiliated with the listed projects, Valve or Adobe, and never stores or redistributes installers. Install links go straight to the official GitHub release file.')}</p><p>${T('GitHub 정보 기준: 2026년 11월 3일 · Steam은 Valve Corporation의, Photoshop은 Adobe Inc.의 상표예요.', 'GitHub data as of Nov 3, 2026 · Steam is a trademark of Valve Corporation; Photoshop is a trademark of Adobe Inc.')}</p>`;
 }
 function whoHTML() {
   if (!S.me || !S.me.id) return '';
@@ -1454,7 +1456,7 @@ function badgesHTML(a) {
     ? `<span class="badge">${icon(platIcon(plats[0]))}${plats[0] === 'android' ? T('안드로이드 전용', 'Android only') : T(`${platLabel(plats[0])} 전용`, `${platLabel(plats[0])} only`)}</span>`
     : `<span class="badge">${icon('monitor')}${plats.map(platLabel).join(' · ')}</span>`;
   const stage = a.stage === 'alpha' ? `<span class="badge warn">${icon('warn')}${T('얼리 알파', 'Early alpha')}</span>` : '';
-  return `<span class="badge ok">${icon('check')}${T('나루 검증', 'Naru verified')}</span><span class="badge sky">${icon('branch')}${T('오픈소스', 'Open source')} · ${esc(a.license)}</span>${platBadge}${stage}`;
+  return `<span class="badge ok">${icon('check')}${T('사나미치 검증', 'Sanamichi verified')}</span><span class="badge sky">${icon('branch')}${T('오픈소스', 'Open source')} · ${esc(a.license)}</span>${platBadge}${stage}`;
 }
 function buyHTML(a, wide) {
   const f = primaryFile(a);
@@ -1557,7 +1559,7 @@ function verifyHTML(a) {
   const ic = { ok: 'check', warn: 'warn', todo: 'todo' };
   const tech = a.tech.map(([k, v]) => `<dt>${esc(tx(k))}</dt><dd>${tx(v)}</dd>`).join('');
   return `<div class="verify-head">
-      <h2>${icon('shield')}${T('나루 검증 리포트', 'Naru verification report')}</h2>
+      <h2>${icon('shield')}${T('사나미치 검증 리포트', 'Sanamichi verification report')}</h2>
       <p class="note">${T(`v${r.version} 파일 기준 · ${fmtDay(a.snapshot)} 확인`, `For the v${r.version} files · checked ${fmtDay(a.snapshot)}`)}</p>
       <div class="tally"><span class="badge ok">${T(`통과 ${n('ok')}`, `${n('ok')} passed`)}</span><span class="badge warn">${T(`참고 ${n('warn')}`, `${n('warn')} note`)}</span><span class="badge">${T(`예정 ${n('todo')}`, `${n('todo')} planned`)}</span></div>
     </div>
@@ -1619,7 +1621,7 @@ function viewApp(a) {
       </section>
       <section class="s-note sec">
         <div class="note-card">
-          <div class="eyebrow">${T('나루 큐레이션 노트', 'Naru curation note')}</div>
+          <div class="eyebrow">${T('사나미치 큐레이션 노트', 'Sanamichi curation note')}</div>
           <div class="fit">
             <div class="yes"><h3>${icon('check')}${T('이런 분께 맞아요', 'A good fit if')}</h3><ul>${fitList(a.fit.yes)}</ul></div>
             <div class="wait"><h3>${icon('clock')}${T('이런 분은 기다려 주세요', 'Wait if')}</h3><ul>${fitList(a.fit.wait)}</ul></div>
@@ -1697,7 +1699,7 @@ function viewTrust() {
     <header class="page-head">
       <div class="eyebrow">${T('검증 방식', 'How we verify')}</div>
       <h1 class="page-title">${T('설치 버튼 뒤에서 확인하는 것들', 'What happens behind the Install button')}</h1>
-      <p class="lead">${T('컴퓨터를 잘 몰라도 안심하고 누를 수 있게, 나루는 앱을 올리기 전과 새 버전이 나올 때마다 아래를 확인해요.', 'So anyone can tap Install with confidence, Naru checks the following before listing an app and again for every new version.')}</p>
+      <p class="lead">${T('컴퓨터를 잘 몰라도 안심하고 누를 수 있게, 사나미치는 앱을 올리기 전과 새 버전이 나올 때마다 아래를 확인해요.', 'So anyone can tap Install with confidence, Sanamichi checks the following before listing an app and again for every new version.')}</p>
     </header>
     <div class="pillars">
       <div class="pillar">${icon('users')}<div><strong>${T('사람이 먼저 걸러요', 'People filter first')}</strong><p>${T('운영자가 승인한 큐레이터만 추천할 수 있고, 등록은 운영자가 하나씩 직접 승인해요.', 'Only approved curators can recommend, and the operator approves every listing one by one.')}</p></div></div>
@@ -1720,7 +1722,7 @@ function viewTrust() {
         <div class="card case">
           <h3>${appIconHTML(PHOTOCRAFT, 'sm')}PhotoCraft</h3>
           <ul>
-            <li>${T('검색하면 미러·포크 저장소가 여럿 나와요. 나루는 원본 storytold/photocraft의 공식 릴리스만 연결해요.', 'Search turns up several mirrors and forks. Naru links only the official storytold/photocraft release.')}</li>
+            <li>${T('검색하면 미러·포크 저장소가 여럿 나와요. 사나미치는 원본 storytold/photocraft의 공식 릴리스만 연결해요.', 'Search turns up several mirrors and forks. Sanamichi links only the official storytold/photocraft release.')}</li>
             <li>${T('Windows MSI 안에서 Learning Machines Inc의 코드 서명을, Mac DMG에서 Apple 개발자 ID 서명과 공증 티켓을 찾았어요.', 'We found Learning Machines Inc’s code signature inside the Windows MSI, and an Apple Developer ID signature with a notarization ticket on the Mac DMG.')}</li>
             <li>${T('얼리 알파라는 점은 리포트에 ‘참고’로 그대로 적었어요.', 'The early-alpha status sits in the report as a note.')}</li>
           </ul>
@@ -1729,7 +1731,7 @@ function viewTrust() {
         <div class="card case">
           <h3>${appIconHTML(DROIDDECK, 'sm')}DroidDeck</h3>
           <ul>
-            <li>${T('공식 웹사이트가 없다고 밝히고 사칭 다운로드 사이트를 조심하라고 안내하는 프로젝트예요. 나루는 파일을 두지 않고 GitHub 공식 주소를 그대로 보여줘요.', 'The project says it has no website and warns about sites posing as the team. Naru keeps no copy and shows the official GitHub address.')}</li>
+            <li>${T('공식 웹사이트가 없다고 밝히고 사칭 다운로드 사이트를 조심하라고 안내하는 프로젝트예요. 사나미치는 파일을 두지 않고 GitHub 공식 주소를 그대로 보여줘요.', 'The project says it has no website and warns about sites posing as the team. Sanamichi keeps no copy and shows the official GitHub address.')}</li>
             <li>${T(`v${DROIDDECK.release.version} 파일(${fmtMB(dd.bytes)})의 SHA-256이 공개 값과 일치했고, Android 9 이상용 개발자 키가 0.6.7과 같았어요.`, `The v${DROIDDECK.release.version} file (${fmtMB(dd.bytes)}) matched its published SHA-256, and the Android 9+ developer key matched 0.6.7.`)}</li>
             <li>${T('구형 서명이 AOSP 공개 테스트 키라는 점도 리포트에 그대로 적었어요.', 'The report also says the legacy signature uses the public AOSP test key.')}</li>
           </ul>
@@ -1738,11 +1740,11 @@ function viewTrust() {
       </div>
     </section>
     <section class="sec">
-      <h2 class="sec-title">${T('나루가 약속하지 않는 것', 'What Naru doesn’t promise')}</h2>
+      <h2 class="sec-title">${T('사나미치가 약속하지 않는 것', 'What Sanamichi doesn’t promise')}</h2>
       <ul class="plain">
         <li>${T('100% 안전을 보장하진 않아요. 검사는 위험을 크게 줄이는 장치예요.', 'It can’t guarantee 100% safety. The checks cut the risk a lot.')}</li>
         <li>${T('앱의 기능과 성능은 개발자 몫이에요. 리뷰와 기기 호환 정보를 함께 보세요.', 'Features and performance are up to the developer. Read reviews and the device check too.')}</li>
-        <li>${T('따로 표시하지 않는 한 각 프로젝트와 제휴 관계가 아니에요.', 'Unless marked, Naru isn’t affiliated with the projects it lists.')}</li>
+        <li>${T('따로 표시하지 않는 한 각 프로젝트와 제휴 관계가 아니에요.', 'Unless marked, Sanamichi isn’t affiliated with the projects it lists.')}</li>
       </ul>
     </section>
   </div>`;
@@ -1814,7 +1816,7 @@ function installSheetHTML(a) {
       </div>`;
   } else if (d.platform === 'android' || d.platform === 'ios') {
     const mains = PC_PLATS.map(p => fileFor(a, p)).filter(Boolean);
-    branch = `<div class="hint" style="margin-top:0">${icon('monitor')}<span>${T('PC용 프로그램이라 폰에는 설치할 수 없어요. 컴퓨터에서 나루를 열고 설치를 누르거나, 아래 주소를 복사해 컴퓨터로 보내세요.', 'This is a PC program, so it can’t install on a phone. Open Naru on your computer and tap Install, or copy a link below and send it to your computer.')}</span></div>
+    branch = `<div class="hint" style="margin-top:0">${icon('monitor')}<span>${T('PC용 프로그램이라 폰에는 설치할 수 없어요. 컴퓨터에서 사나미치를 열고 설치를 누르거나, 아래 주소를 복사해 컴퓨터로 보내세요.', 'This is a PC program, so it can’t install on a phone. Open Sanamichi on your computer and tap Install, or copy a link below and send it to your computer.')}</span></div>
       <div class="copyrow">${mains.map((m, i) => `<div><b>${esc(platLabel(m.plat))}</b><code id="link-${i}" class="mono" style="display:none">${esc(m.url)}</code><button class="copy-btn" type="button" data-act="copy-link" data-target="link-${i}" data-url="${esc(m.url)}">${T(`${m.kind} 주소 복사`, `Copy ${m.kind} link`)}</button><span class="note">${fmtMB(m.bytes)}</span></div>`).join('')}</div>`;
   } else {
     branch = `<p class="err">${T(`이 프로그램은 ${appPlats(a).map(platLabel).join('·')}용이에요. 지금 컴퓨터에 맞는 파일이 없어요.`, `This program is for ${appPlats(a).map(platLabel).join(', ')}. There’s no file for this computer.`)}</p>`;
@@ -1824,7 +1826,7 @@ function installSheetHTML(a) {
     <div class="sheet-head">${appIconHTML(a, 'sm')}<div><h2 id="sheet-title">${T(`${a.name} 설치`, `Install ${a.name}`)}</h2><p class="note">${T(`${platLabel(f.plat)}용 파일을 GitHub 공식 릴리스에서 받아요`, `The ${platLabel(f.plat)} file comes from the official GitHub release`)}</p></div><button class="icon-btn" type="button" id="sheet-close" data-act="close" aria-label="${T('닫기', 'Close')}">${icon('close')}</button></div>
     <div class="filecard">
       <div class="file-row"><span class="file-name">${esc(f.file)}</span><span class="file-size">${fmtMB(f.bytes)}</span></div>
-      <div class="file-meta"><span>${esc(fileLabel(f))} · v${esc(r.version)} · ${fmtDay(r.date)}</span><span class="badge ok">${icon('check')}${f.verified ? T('나루가 직접 확인한 파일', 'Checked by Naru') : T('공개 체크섬 대조', 'Matched to published checksum')}</span></div>
+      <div class="file-meta"><span>${esc(fileLabel(f))} · v${esc(r.version)} · ${fmtDay(r.date)}</span><span class="badge ok">${icon('check')}${f.verified ? T('사나미치가 직접 확인한 파일', 'Checked by Sanamichi') : T('공개 체크섬 대조', 'Matched to published checksum')}</span></div>
       <div class="file-src">${T('출처', 'Source')}: <a href="${r.tagUrl}" target="_blank" rel="noopener">github.com/${esc(a.repo)}/releases/tag/${esc(r.tagUrl.split('/').pop())}</a></div>
       <div class="hashline"><span class="lbl">SHA-256</span><code id="hash-code">${shortHash(f.sha256)}</code><button class="copy-btn" type="button" data-act="copy-hash" data-hash="${f.sha256}">${T('복사', 'Copy')}</button></div>
     </div>
@@ -2048,9 +2050,9 @@ async function decideCurator(uid, ok, btn) {
 function buildPrompt(a, q) {
   const d = S.device;
   const dev = d.platform === 'android'
-    ? `Android phone. Model: ${d.model || 'unknown'}. Android version: ${d.androidVer || 'unknown'}. GPU: ${d.gpu || 'unknown'}.${a.device === 'gpu' ? ` Naru's auto-check verdict: ${d.verdict}.` : ''}`
+    ? `Android phone. Model: ${d.model || 'unknown'}. Android version: ${d.androidVer || 'unknown'}. GPU: ${d.gpu || 'unknown'}.${a.device === 'gpu' ? ` Sanamichi's auto-check verdict: ${d.verdict}.` : ''}`
     : d.platform === 'ios' ? 'iPhone or iPad.' : `A computer: ${platLabel(d.platform) || d.platform}${d.arch ? ', CPU ' + d.arch : ''}.`;
-  return `You are the install helper of "Naru" (나루), a curated store that helps people who are not good with computers install vetted programs from GitHub.
+  return `You are the install helper of "Sanamichi Store" (사나미치 스토어), a curated store that helps people who are not good with computers install vetted programs from GitHub.
 Answer the visitor's question about the app below using ONLY these facts. If the facts don't cover it, say you're not sure and point to the official GitHub page. Never invent device or feature support. If the visitor's device can't run it, say so clearly and kindly.
 Reply in ${S.lang === 'ko' ? 'Korean, in friendly polite speech (해요체)' : 'English'}. Plain words for a non-technical person, 2 to 5 short sentences, no headings, no lists, no tables, no markdown.
 
